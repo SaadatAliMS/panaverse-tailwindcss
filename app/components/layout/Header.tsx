@@ -2,11 +2,13 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header>
+    <header className="flex  justify-between max-w-screen-xl mx-auto bg-red-700">
       {/* logo */}
-      <h2>Panaverse Dao</h2>
+      <div>
+        <h2 className="text-xl font-bold">Panaverse Dao</h2>
+      </div>
       {/* Navigation bar */}
-      <ul>
+      <ul className="flex">
         <li>Home</li>
         <li>Courses</li>
       </ul>
