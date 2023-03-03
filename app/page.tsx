@@ -1,8 +1,13 @@
+import Hero from "../app/components/widgets/Hero";
+import CoreTracks from "./components/widgets/CoreTracks";
 export default function Home() {
   return (
     <>
       <main>
-        <h2 className="text-red-800">Hello world</h2>
+        {/* Hero section */}
+        <Hero />
+        {/* core tracks section */}
+        <CoreTracks />
       </main>
     </>
   );
