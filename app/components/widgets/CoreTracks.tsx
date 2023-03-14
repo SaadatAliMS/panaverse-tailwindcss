@@ -2,6 +2,26 @@ import React from "react";
 import Button from "../shared/Button";
 import Wrapper from "../shared/Wrapper";
 
+const CoreTrackData = [
+  {
+    header: "Quarter I",
+    description: "CS-101: Object-Oriented Programming using TypeScript",
+    number: 1,
+  },
+  {
+    header: "Quarter II",
+    description:
+      "W2-201: Developing Planet-Scale Web 2.0 Serverless Cloud Cloud Apps and APIs using Next.js 13 and Cloud Development Kit (CDK) for Terraform",
+    number: 2,
+  },
+  {
+    header: "Quarter III",
+    description:
+      "$-101: Dollar Making Bootcamp - Full-Stack Template and API Product Development",
+    number: 3,
+  },
+];
+
 const CoreTracks = () => {
   const header = "Core Courses \n (Common in All Specializations):";
   return (
@@ -23,12 +43,18 @@ const CoreTracks = () => {
           </div>
         </div>
         {/* boxes */}
-        <div className="border rounded-md mt-8 px-8 py-8 w-4/12 relative left-0">
-          <h4 className="font-semibold text-md">Quarter I</h4>
-          <p>CS-101: Object-Oriented Programming using TypeScript </p>
-          <span className="text-gray-200 absolute top-0 right-10 text-9xl font-bold -z-10">
-            1{" "}
-          </span>
+        <div className="my-20 flex gap-x-6 max-w-screen-xl mx-auto ">
+          {CoreTrackData.map((item) => {
+            return (
+              <div className="border rounded-md mt-8 px-8 py-8 w-4/12 relative flex flex-col left-0">
+                <h4 className="font-semibold text-md">{item.header}</h4>
+                <p>{item.description} </p>
+                <span className="text-gray-200 absolute top-0 right-10 text-9xl font-bold -z-10">
+                  {item.number}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </Wrapper>
     </section>
