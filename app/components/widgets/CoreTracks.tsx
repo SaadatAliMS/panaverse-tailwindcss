@@ -43,15 +43,15 @@ const CoreTracks = () => {
           </div>
         </div>
         {/* boxes */}
-        <div className="my-20 flex gap-x-6 max-w-screen-xl mx-auto ">
-          {CoreTrackData.map((item) => {
+        <div className="my-20 flex flex-col md:flex-row gap-x-8 gap-y-6  mx-auto ">
+          {CoreTrackData.map((item, i) => {
             return (
-              <div className="border rounded-md mt-8 px-8 py-8 w-4/12 relative flex flex-col left-0">
-                <h4 className="font-semibold text-md">{item.header}</h4>
-                <p>{item.description} </p>
-                <span className="text-gray-200 absolute top-0 right-10 text-9xl font-bold -z-10">
-                  {item.number}
-                </span>
+              <div className="border rounded-md flex-1  relative justify-center  flex flex-col sm:p-10 ">
+                <h4 className="font-bold text-lg">{item.header}</h4>
+                <p className="mt-2 text-slate-600 z-0">{item.description} </p>
+                <div className="text-gray-200 absolute top-0 right-10 text-9xl font-bold -z-10">
+                  {i + 1}
+                </div>
               </div>
             );
           })}
