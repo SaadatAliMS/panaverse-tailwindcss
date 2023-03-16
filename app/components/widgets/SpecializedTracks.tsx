@@ -1,4 +1,5 @@
 import React from "react";
+import { QuarterBox } from "../shared/QuarterBox";
 import Wrapper from "../shared/Wrapper";
 
 export const SpecializedTracks = () => {
@@ -15,9 +16,9 @@ export const SpecializedTracks = () => {
             select one or more specializations consisting of two courses each:{" "}
           </p>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 flex gap-x-6 gap-y-8">
           {/* content left */}
-          <div className="shadow-xl rounded-xl border border-slate-300 py-8 px-8">
+          <div className="shadow-xl flex-1 rounded-xl basis-8/12 border border-slate-300 py-8 px-8">
             <h4 className="text-teal-700 text-lg ">Specialized Program</h4>
             <h3 className="text-2xl font-semibold ">
               Web 3.0 (Blockchain) and Metaverse Specialization
@@ -46,9 +47,38 @@ export const SpecializedTracks = () => {
                 />
               </svg>
             </button>
+            <div className="flex gap-4 mt-8">
+              <QuarterBox
+                description="W2-201: Developing Planet-Scale Web 2.0 Serverless Cloud Cloud Apps and APIs using Next.js 13 and Cloud Development Kit (CDK) for Terraform"
+                header="Quarter IV"
+                number={4}
+                haveBorder={false}
+              />
+              <QuarterBox
+                description="W2-201: Developing Planet-Scale Web 2.0 Serverless Cloud Cloud Apps and APIs using Next.js 13 and Cloud Development Kit (CDK) for Terraform"
+                header="Quarter  V"
+                number={5}
+                haveBorder={false}
+              />
+            </div>
           </div>
 
           {/* content right */}
+          <div className="px-4 py-6  bg-slate-200  flex-1 basis-4/12">
+            <div className="flex items-center gap-x-4">
+              <div>
+                <div className="w-20 h-16 rounded bg-red-500"></div>
+              </div>
+              <div>
+                <h4 className="text-primary font-medium">
+                  Specialized Program
+                </h4>
+                <h3 className="text-xl font-semibold">
+                  Web 3.0 (Blockchain) and Metaverse Specialization
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
       </Wrapper>
     </section>
