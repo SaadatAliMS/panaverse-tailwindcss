@@ -48,6 +48,7 @@ const CoreTracks = () => {
           {CoreTrackData.map((item, i) => {
             return (
               <QuarterBox
+                key={item.number}
                 description={item.description}
                 header={item.header}
                 number={i + 1}
