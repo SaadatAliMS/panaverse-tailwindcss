@@ -44,7 +44,7 @@ const CoreTracks = () => {
           </div>
         </div>
         {/* boxes */}
-        <div className="my-20 flex flex-col md:flex-row gap-x-8 gap-y-6  mx-auto ">
+        <div className="my-20 flex flex-col  md:flex-row gap-x-8 gap-y-6  mx-auto ">
           {CoreTrackData.map((item, i) => {
             return (
               <QuarterBox

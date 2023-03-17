@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { QuarterBox } from "../shared/QuarterBox";
 import Wrapper from "../shared/Wrapper";
 import web3 from "../../../public/web3.webp";
@@ -8,6 +9,7 @@ import genomics from "../../../public/genomics.webp";
 
 export const programsData = [
   {
+    slug: "wmd",
     header: "Web 3.0 (Blockchain) and Metaverse Specialization",
     description:
       "This Web 3.0 and Metaverse specialization focuses on developing full-stack Web 3.0 and Metaverse experiences for the next generation of the internet by specializing in building worlds that merge the best of cutting-edge decentralized distributed blockchains with 3D metaverse client experiences.",
@@ -28,6 +30,7 @@ export const programsData = [
     ],
   },
   {
+    slug: "ai",
     header: "Artificial Intelligence (AI) and Deep Learning Specialization",
     description:
       "The AI and Deep Learning specialization focuses on building and deploying intelligent APIs using OpenAI models and building custom Deep Learning Tensorflow models.",
@@ -48,6 +51,7 @@ export const programsData = [
     ],
   },
   {
+    slug: "genom",
     header: "Genomics and Bioinformatics Specialization",
     description:
       "Genomics is the study of the total genetic makeup of individual organisms, and how this genetic information is structured, functions, and has evolved; bioinformatics encompasses a diverse range of analytical methods and tools applied to genomic data. This Specialization focuses on performing complex bioinformatics analysis using the most essential Python libraries and applications.",
@@ -69,6 +73,11 @@ export const programsData = [
 ];
 
 export const SpecializedTracks = () => {
+  const [selectedItem, setSelectedItem] = useState("wmd");
+  const selectedItemData = programsData.find(
+    (item) => item.slug === selectedItem
+  );
+
   return (
     <section>
       <Wrapper>
@@ -82,21 +91,17 @@ export const SpecializedTracks = () => {
             select one or more specializations consisting of two courses each:{" "}
           </p>
         </div>
-        <div className="mt-10 flex gap-x-6 gap-y-8">
+        <div className="mt-10 flex flex-col-reverse lg:flex-row gap-x-6 gap-y-8">
           {/* content left */}
-          <div className="shadow-xl flex-1 rounded-xl basis-8/12 border border-slate-300 py-8 px-8">
+          <div className=" sticky top-28 self-start shadow-xl flex-1 rounded-xl basis-8/12 border border-slate-300 py-8 px-8">
             <h4 className="text-primary text-lg font-medium">
               Specialized Program
             </h4>
             <h3 className="text-2xl font-semibold ">
-              Web 3.0 (Blockchain) and Metaverse Specialization
+              {selectedItemData?.header}
             </h3>
             <p className="text-lg text-slate-600 mt-4">
-              This Web 3.0 and Metaverse specialization focuses on developing
-              full-stack Web 3.0 and Metaverse experiences for the next
-              generation of the internet by specializing in building worlds that
-              merge the best of cutting-edge decentralized distributed
-              blockchains with 3D metaverse client experiences.
+              {selectedItemData?.description}
             </p>
             <button className="text-primary text-lg mt-4 underline flex gap-2 items-end">
               Learn More
@@ -115,32 +120,33 @@ export const SpecializedTracks = () => {
                 />
               </svg>
             </button>
-            <div className="flex gap-4 mt-8">
-              <QuarterBox
-                description="W2-201: Developing Planet-Scale Web 2.0 Serverless Cloud Cloud Apps and APIs using Next.js 13 and Cloud Development Kit (CDK) for Terraform"
-                header="Quarter IV"
-                number={4}
-                haveBorder={false}
-              />
-              <QuarterBox
-                description="W2-201: Developing Planet-Scale Web 2.0 Serverless Cloud Cloud Apps and APIs using Next.js 13 and Cloud Development Kit (CDK) for Terraform"
-                header="Quarter  V"
-                number={5}
-                haveBorder={false}
-              />
+            <div className="flex gap-4 mt-8 flex-col sm:flex-row">
+              {selectedItemData?.quarters.map((item) => (
+                <QuarterBox
+                  key={item.number}
+                  description={item.description}
+                  header={item.header}
+                  number={item.number}
+                  haveBorder={false}
+                />
+              ))}
             </div>
           </div>
 
           {/* content right */}
-          <div className="px-4 py-6 space-y-4 bg-slate-200  flex-1 basis-4/12">
+          <div className="shadow-xl rounded-xl px-4 py-6 space-y-4 bg-slate-200  flex-1 basis-4/12">
             {programsData.map((item, i) => (
-              <div key={i} className="flex items-center gap-x-4 cursor-pointer">
-                <div>
+              <div
+                key={item.slug}
+                onClick={() => setSelectedItem(item.slug)}
+                className="flex items-center gap-x-4 cursor-pointer"
+              >
+                <div className="flex-shrink-0 h-24 w-36">
                   {/* <div className="w-20 h-16 rounded bg-red-500"></div> */}
                   <Image
                     src={item.image}
                     alt={item.header}
-                    className={"h-24 object-cover"}
+                    className={"h-24 object-cover rounded-md"}
                   />
                 </div>
                 <div>
